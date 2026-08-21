@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Aurea Salud</title>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-primary text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4 mb-0">Aurea Salud</h1>
+      <nav>
+        <a href="/index.html" class="text-white text-decoration-none me-3">Inicio</a>
+        <a href="/Paginas/acerca.html" class="text-white text-decoration-none me-3">Acerca</a>
+        <a href="/Paginas/servicios.html" class="text-white text-decoration-none">Servicios</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container py-5">
+    <h2 class="mb-4">Contáctanos</h2>
+    <p>Si tienes dudas o necesitas más información, puedes comunicarte con nosotros a través del siguiente formulario o por los datos de contacto oficiales.</p>
+    
+    <form class="mt-4">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" id="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="correo" required>
+      </div>
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <?php include("footer.html"); ?>
+</body>
+</html>

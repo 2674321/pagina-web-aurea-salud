@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio de Sesión - Áurea Salud Coquimbo</title>
+  <link href="../recursos-graficos/Logo-sin-letras-removebg-preview.ico" rel="icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="../recursos-programacion/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../recursos-programacion/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Estilo personalizado -->
+  <link href="../CSS/login.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- MODAL VERIFICACIÓN -->
+  <div class="modal fade" id="modalVerificacion" tabindex="-1" aria-labelledby="modalVerificacionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVerificacionLabel">Selecciona un método de verificación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="mb-3">Elige cómo deseas recibir tu código de verificación:</p>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-success" onclick="enviarCodigo('whatsapp')" data-bs-toggle="tooltip"
+              title="Recibirás un mensaje de WhatsApp con tu código.">
+              <i class="bi bi-whatsapp me-1"></i> WhatsApp
+            </button>
+
+            <button class="btn btn-outline-danger" onclick="enviarCodigo('gmail')" data-bs-toggle="tooltip"
+              title="Te enviaremos el código a tu correo de Gmail.">
+              <i class="bi bi-envelope-at me-1"></i> Gmail
+            </button>
+
+            <button class="btn btn-outline-secondary" onclick="enviarCodigo('sms')" data-bs-toggle="tooltip"
+              title="Recibirás un código por mensaje de texto (SMS).">
+              <i class="bi bi-phone me-1"></i> SMS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL INGRESO DE CÓDIGO -->
+  <div class="modal fade" id="modalCodigo" tabindex="-1" aria-labelledby="modalCodigoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCodigoLabel">Ingresa el código de verificación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p id="textoMetodoSeleccionado">Se envió un código a tu método seleccionado.</p>
+          <input type="text" id="codigoInput" class="form-control mb-3" placeholder="Ej: 1234" maxlength="6" />
+          <button class="btn btn-primary w-100" onclick="verificarCodigo()">Verificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Encabezado profesional mejorado con botón de Inicio y menú de accesibilidad -->
+  <header class="main-header bg-light py-3 shadow-sm fixed-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="login-title-wrapper">
+        <h1 class="login-title">Acceso a Plataforma</h1>
+        <div class="login-underline"></div>
+      </div>
+
+      <nav class="d-flex align-items-center gap-2">
+        <!-- Redes sociales -->
+        <a href="https://x.com/aureasaludcoq" target="_blank" class="text-dark me-2" aria-label="X (Twitter)"
+          title="X (Twitter)">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+        <a href="https://web.facebook.com/profile.php?id=61579296214043" target="_blank" class="text-dark me-2"
+          aria-label="Facebook" title="Facebook">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/aureasalud/" target="_blank" class="text-dark me-2" aria-label="Instagram"
+          title="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/áurea-salud-coquimbo" target="_blank" class="text-dark me-3"
+          aria-label="LinkedIn" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <!-- Botón Inicio -->
+        <a href="./index.html" class="btn btn-outline-dark btn-sm" title="Volver al inicio" aria-label="Inicio">
+          <i class="bi bi-house-door-fill"></i>
+        </a>
+        <!-- Botones de utilidad -->
+        <a href="../Paginas/subpaginas-index/ayuda.html" class="btn btn-outline-secondary btn-sm" title="Ayuda">
+          <i class="bi bi-question-circle"></i>
+        </a>
+        <a href="../Paginas/subpaginas-index/contacto.html" class="btn btn-outline-success btn-sm" title="Contacto">
+          <i class="bi bi-envelope"></i>
+        </a>
+        <a href="../Paginas/subpaginas-index/terminos.html" class="btn btn-outline-dark btn-sm"
+          title="Términos y condiciones">
+          <i class="bi bi-file-earmark-text"></i>
+        </a>
+        <button id="btn-toggle-theme" class="btn btn-outline-primary btn-sm" title="Cambiar tema">
+          <i class="bi bi-moon-stars"></i>
+        </button>
+        <!-- Menú de accesibilidad -->
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="menuAccesibilidad"
+            data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menú de accesibilidad">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuAccesibilidad">
+            <li><button class="dropdown-item" type="button" onclick="aumentarLetra()">Aumentar letra</button></li>
+            <li><button class="dropdown-item" type="button" onclick="reducirLetra()">Reducir letra</button></li>
+            <li><button class="dropdown-item" type="button" onclick="toggleContraste()">Alto contraste</button></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Contenido principal -->
+  <div class="container" style="padding-top: 6rem;">
+    <div class="row justify-content-center gy-4">
+      <!-- Login Usuarios -->
+      <div class="col-md-5">
+        <div class="login-card">
+          <div class="titulo-login">Ingreso para Usuarios</div>
+          <form id="form_usuario">
+            <div class="mb-3">
+              <label for="usuario_rut" class="form-label">RUT</label>
+              <input type="text" class="form-control" id="usuario_rut" placeholder="Ej: 12.345.678-9" required />
+            </div>
+            <div class="mb-3">
+              <label for="usuario_email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="usuario_email" placeholder="usuario@vitalis.cl" required />
+            </div>
+            <div class="mb-3">
+              <label for="usuario_pass" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="usuario_pass" placeholder="Ingrese su contraseña"
+                  required />
+                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('usuario_pass', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="recordar_usuario" />
+              <label class="form-check-label" for="recordar_usuario">Recordarme</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Continuar</button>
+            <div class="form-footer mt-2 d-flex justify-content-between align-items-center">
+              <a href="../Paginas/subpaginas-login/recuperar-usuario.html"><i class="bi bi-question-circle"></i>
+                ¿Olvidaste tu contraseña?</a>
+              <button type="button" class="btn btn-outline-info btn-sm" onclick="loginClaveUnica('usuario')">
+                <i class="bi bi-person-badge"></i> Clave Única
+              </button>
+            </div>
+          </form>
+          <hr/>
+          <div class="text-center mt-3">
+            <a href="../Paginas/subpaginas-login/crear-cuenta-usuario.html" class="btn btn-success w-100">
+              <i class="bi bi-person-plus"></i> Crear Cuenta
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Login Personal Autorizado -->
+      <div class="col-md-5">
+        <div class="login-card">
+          <div class="titulo-login">Ingreso para Personal Autorizado</div>
+          <form id="form_trabajador">
+            <div class="mb-3">
+              <label for="trabajador_rut" class="form-label">RUT o Usuario</label>
+              <input type="text" class="form-control" id="trabajador_rut" placeholder="Ej: 12.345.678-9" required />
+            </div>
+            <div class="mb-3">
+              <label for="trabajador_pass" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="trabajador_pass" placeholder="Ingrese su contraseña"
+                  required />
+                <button class="btn btn-outline-secondary" type="button"
+                  onclick="togglePassword('trabajador_pass', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="trabajador_email" class="form-label">Correo institucional</label>
+              <input type="email" class="form-control" id="trabajador_email" placeholder="correo@aurea.salud.cl"
+                required />
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="recordar_trabajador" />
+              <label class="form-check-label" for="recordar_trabajador">Recordarme</label>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Continuar</button>
+            <div class="form-footer mt-2 d-flex justify-content-between align-items-center">
+              <a href="../Paginas/subpaginas-login/recuperar-trabajador.html"><i class="bi bi-question-circle"></i>
+                ¿Olvidaste tu contraseña?</a>
+              <button type="button" class="btn btn-outline-info btn-sm" onclick="loginClaveUnica('trabajador')">
+                <i class="bi bi-person-badge"></i> Clave Única
+              </button>
+            </div>
+          </form>
+          <hr />
+          <div class="text-center mt-3">
+            <a href="../Paginas/subpaginas-login/crear-cuenta-trabajador.html" class="btn btn-success w-100">
+              <i class="bi bi-person-plus"></i> Crear Cuenta
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tu JS separado -->
+  <script src="../JAVASCRIPT/login.js"></script>
+  <script src="../JAVASCRIPT/preloader-login.js"></script>
+  <!-- Toasts de verificación y error -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080">
+    <!-- Formato incorrecto -->
+    <div id="toastFormato" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastFormatoMensaje">
+          <!-- Mensaje dinámico -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Cerrar"></button>
+      </div>
+    </div>
+    <!-- Mensaje de ingreso exitoso -->
+    <div id="toastIngreso" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastIngresoMensaje">
+          <!-- Mensaje dinámico -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Cerrar"></button>
+      </div>
+    </div>
+  </div>
+  <div id="page-transition" class="page-transition d-none">
+    <div class="circle-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>

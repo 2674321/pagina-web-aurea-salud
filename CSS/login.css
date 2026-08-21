@@ -1,0 +1,531 @@
+/* Animación de entrada para el header */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-header {
+  animation: fadeSlideDown 0.8s ease-out forwards;
+  background-color: #f8f9fa;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 1050;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover refinado para botones del header */
+.main-header .btn,
+.main-header a.btn {
+  transition: all 0.3s ease;
+}
+
+.main-header .btn:hover,
+.main-header a.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Iconos sociales más elegantes */
+.main-header i.bi {
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.main-header a:hover i.bi {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+/* Título con subrayado animado */
+.login-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.25rem;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-underline {
+  width: 90%;
+  height: 3px;
+  background-color: #0d6efd;
+  border-radius: 5px;
+  animation: expandLine 0.6s ease-out;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+/* Ocultar por defecto */
+.d-none {
+  display: none !important;
+}
+
+/* Contenedor del preloader */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background-color: #e0f7fa;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animación tipo burbujas */
+.circle-loader {
+  display: flex;
+  gap: 10px;
+}
+
+.circle-loader div {
+  width: 14px;
+  height: 14px;
+  background-color: #0d6efd;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite ease-in-out;
+}
+
+.circle-loader div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.circle-loader div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===== Encabezado Moderno Compacto ===== */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding: 0.5rem 1.5rem;
+}
+
+body {
+  padding-top: 90px;
+  background-color: #f5f9ff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+.text-primary-emphasis {
+  color: #0d6efd;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.utility-buttons {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.utility-buttons .btn-utilidad {
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.utility-buttons .btn-utilidad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.branding .slogan {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logo-box .logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.logo-box .logo:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+/* Carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+}
+
+.carousel-control-prev span,
+.carousel-control-next span {
+  padding: 0.25rem !important;
+}
+
+/* Fade al cargar contenido */
+.container {
+  animation: fadeSlideIn 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Títulos y subtítulos animados */
+h4.text-primary,
+h4.text-success {
+  position: relative;
+  font-weight: 700;
+  cursor: default;
+  animation: fadeInScale 0.8s ease forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+h4.text-primary {
+  animation-delay: 0.6s;
+  color: #007bff;
+}
+
+h4.text-success {
+  animation-delay: 0.7s;
+  color: #28a745;
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Formularios */
+.form-label {
+  font-weight: 600;
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 6px #007bff;
+  border-color: #007bff;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+/* Login */
+.login-card {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.titulo-login {
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  user-select: none;
+}
+
+/* Logo + nombre */
+.logo-container {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeSlideIn 1s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.logo-container img {
+  width: 50px;
+  height: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.sitename {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-top: 0.4rem;
+  letter-spacing: 1.5px;
+  user-select: none;
+  animation: fadeSlideIn 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation-delay: 0.2s;
+}
+
+/* Otros */
+.form-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form-footer a {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+.return-home {
+  margin-top: 2rem;
+  text-align: center;
+  animation: fadeSlideIn 1.4s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.return-home a {
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-animated {
+  animation: fadeInScale 0.8s ease forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+/* Animación de entrada para el header */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-header {
+  animation: fadeSlideDown 0.8s ease-out forwards;
+  background-color: #f8f9fa;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 1050;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-header .btn,
+.main-header a.btn {
+  transition: all 0.3s ease;
+}
+
+.main-header .btn:hover,
+.main-header a.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.main-header i.bi {
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.main-header a:hover i.bi {
+  color: #00439d;
+  transform: scale(1.1);
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00439d;
+  margin-bottom: 0.25rem;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-underline {
+  width: 90%;
+  height: 3px;
+  background-color: #edb23d;
+  border-radius: 5px;
+  animation: expandLine 0.6s ease-out;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+.page-transition {
+  background-color: #00439d;
+}
+
+.circle-loader div {
+  background-color: #edb23d;
+}
+
+body {
+  background-color: #f5f9ff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.text-primary-emphasis {
+  color: #00439d;
+}
+
+.branding .slogan {
+  color: #00439d;
+}
+
+h4.text-primary {
+  color: #00439d;
+}
+
+h4.text-success {
+  color: #edb23d;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 6px #00439d;
+  border-color: #00439d;
+}
+
+.btn-primary {
+  background-color: #00439d;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #00306f;
+}
+
+.btn-success {
+  background-color: #edb23d;
+  border: none;
+  font-weight: 600;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+.btn-success:hover {
+  background-color: #d49e35;
+  color: #000;
+}
+
+.titulo-login {
+  background-color: #00439d;
+  color: white;
+}
+
+.sitename {
+  color: #00439d;
+}
+
+.form-footer a:hover {
+  color: #00439d;
+}

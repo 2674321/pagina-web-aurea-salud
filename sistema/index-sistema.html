@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="es">
+<!--begin::Head-->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Áurea Salud | Sistema de Gestión y Enfermería Domiciliaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta tags actualizadas -->
+  <meta name="title" content="Áurea Salud | Sistema de Gestión y Enfermería Domiciliaria" />
+  <meta name="author" content="Áurea Salud" />
+  <meta name="description"
+    content="Sistema de gestión administrativa y cuidados de enfermería domiciliarios de Áurea Salud, diseñado para profesionales de salud y equipos de apoyo clínico." />
+  <meta name="keywords"
+    content="Áurea Salud, enfermería domiciliaria, gestión de salud, sistema de enfermería, servicios médicos, atención domiciliaria, cuidados clínicos, administración en salud, gestión administrativa, pacientes en casa" />
+
+  <!-- FavIcon (opcional si tienes uno) -->
+  <link rel="icon" href="./assets/img/favicon.png" type="image/png" />
+  <link href="../recursos-graficos/Logo-sin-letras-removebg-preview.ico" rel="icon">
+
+  <!-- Fuentes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" />
+
+  <!-- Plugins externos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+    integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous" />
+
+  <!-- Estilos del sistema -->
+  <link rel="stylesheet" href="./assets/css/animaciones-sistema.css" />
+  <link rel="stylesheet" href="./assets/css/adminlte.css" />
+  <link rel="stylesheet" href="./assets/css/busqueda-sistema.css" />
+  <link rel="stylesheet" href="./assets/css/preloader-sistema.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+    integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous" />
+
+  <!-- Brand theme overrides -->
+  <style>
+    :root {
+      --brand-primary: #00439d;
+      --brand-accent: #edb23d;
+
+      /* Bootstrap color tokens */
+      --bs-primary: var(--brand-primary);
+      --bs-warning: var(--brand-accent);
+      --bs-link-color: var(--brand-primary);
+      --bs-link-hover-color: #002e6a;
+    }
+
+    /* Components aligned to brand */
+    .btn-primary,
+    .bg-primary {
+      background-color: var(--brand-primary) !important;
+    }
+
+    .text-primary {
+      color: var(--brand-primary) !important;
+    }
+
+    .border-primary {
+      border-color: var(--brand-primary) !important;
+    }
+
+    .btn-warning,
+    .bg-warning {
+      background-color: var(--brand-accent) !important;
+      color: #2a1a00 !important;
+    }
+
+    .text-warning {
+      color: var(--brand-accent) !important;
+    }
+
+    .border-warning {
+      border-color: var(--brand-accent) !important;
+    }
+
+    .navbar .nav-link:hover,
+    .sidebar-menu .nav-link:hover {
+      color: var(--brand-accent) !important;
+    }
+
+    /* Active/hover in sidebar */
+    .app-sidebar .nav-link.active,
+    .app-sidebar .nav-link:focus {
+      background: rgba(0, 67, 157, .15) !important;
+      border-left: 3px solid var(--brand-accent);
+    }
+
+    /* Badges use accent when "warning" */
+    .badge.text-bg-warning {
+      background-color: var(--brand-accent) !important;
+      color: #2a1a00 !important;
+    }
+
+    /* Footer top border accent */
+    .app-footer {
+      border-top: 2px solid var(--brand-accent) !important;
+    }
+
+    /* Small boxes icons tint */
+    .small-box .icon {
+      opacity: .7;
+    }
+
+    .small-box.bg-warning .icon {
+      color: #2a1a00 !important;
+    }
+
+    .small-box a.small-box-footer:hover {
+      filter: brightness(1.05);
+    }
+  </style>
+
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <!--begin::App Wrapper-->
+  <div class="app-wrapper">
+    <!--begin::Header-->
+    <nav class="app-header navbar navbar-expand bg-body">
+      <!--begin::Container-->
+      <div class="container-fluid">
+        <!--begin::Left Navbar Links-->
+        <ul class="navbar-nav align-items-center gap-2">
+          <!--begin::Sidebar Toggle Button-->
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#" data-lte-toggle="sidebar" role="button"
+              aria-label="Abrir menú lateral">
+              <i class="bi bi-list fs-4"></i>
+            </a>
+          </li>
+          <!--end::Sidebar Toggle Button-->
+          <!--begin::Navigation Links (visible desde md)-->
+          <li class="nav-item d-none d-md-block">
+            <a class="nav-link text-truncate" href="../Paginas/login.html" aria-label="Ir a Inicio">
+              <i class="bi bi-house-door me-1"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a class="nav-link text-truncate" href="/Paginas/subpaginas-index/contacto.html" aria-label="Ir a Contacto">
+              <i class="bi bi-envelope me-1"></i> Contacto
+            </a>
+          </li>
+          <!--end::Navigation Links-->
+        </ul>
+        <!--end::Left Navbar Links-->
+        <!--begin::Right Navbar Links-->
+        <ul class="navbar-nav ms-auto">
+          <!--begin::Buscar-->
+          <li class="nav-item position-relative">
+            <div class="d-flex align-items-center">
+              <a class="nav-link p-2" href="#" id="btn-toggle-search" role="button" aria-label="Buscar">
+                <i class="bi bi-search fs-5"></i>
+              </a>
+              <div id="search-container" class="ms-2 d-flex align-items-center transition-width">
+                <input type="text" id="search-input"
+                  class="form-control form-control-sm rounded-pill bg-white border-0 shadow-sm d-none"
+                  placeholder="Buscar en el sistema..." />
+              </div>
+            </div>
+          </li>
+
+          <!--end::Buscar-->
+          <!--end::Buscar-->
+          <!--begin::Mensajes-->
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Mensajes">
+              <i class="bi bi-chat-text"></i>
+              <span class="navbar-badge badge text-bg-danger">3</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <!-- Mensaje 1 -->
+              <a href="#" class="dropdown-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="Avatar"
+                      class="img-size-50 rounded-circle me-3" />
+                  </div>
+                  <div class="flex-grow-1">
+                    <h3 class="dropdown-item-title">
+                      Equipo Áurea
+                      <span class="float-end fs-7 text-primary"><i class="bi bi-star-fill"></i></span>
+                    </h3>
+                    <p class="fs-7">Nueva solicitud de atención</p>
+                    <p class="fs-7 text-secondary">
+                      <i class="bi bi-clock-fill me-1"></i> Hace 2 horas
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Mensaje 2 -->
+              <a href="#" class="dropdown-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="Avatar"
+                      class="img-size-50 rounded-circle me-3" />
+                  </div>
+                  <div class="flex-grow-1">
+                    <h3 class="dropdown-item-title">
+                      Coordinación Médica
+                      <span class="float-end fs-7 text-success"><i class="bi bi-check-circle-fill"></i></span>
+                    </h3>
+                    <p class="fs-7">Informe clínico revisado</p>
+                    <p class="fs-7 text-secondary">
+                      <i class="bi bi-clock-fill me-1"></i> Hace 30 min
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Mensaje 3 -->
+              <a href="#" class="dropdown-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="Avatar"
+                      class="img-size-50 rounded-circle me-3" />
+                  </div>
+                  <div class="flex-grow-1">
+                    <h3 class="dropdown-item-title">
+                      Personal de Enfermería
+                      <span class="float-end fs-7 text-warning"><i class="bi bi-exclamation-circle-fill"></i></span>
+                    </h3>
+                    <p class="fs-7">Falta validación de dosis</p>
+                    <p class="fs-7 text-secondary">
+                      <i class="bi bi-clock-fill me-1"></i> Hace 5 min
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">Ver todos los mensajes</a>
+            </div>
+          </li>
+          <!--end::Mensajes-->
+
+          <!--begin::Notificaciones-->
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notificaciones">
+              <i class="bi bi-bell-fill"></i>
+              <span class="navbar-badge badge text-bg-warning">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <span class="dropdown-item dropdown-header">5 Notificaciones</span>
+              <div class="dropdown-divider"></div>
+
+              <!-- Notificación 1 -->
+              <a href="#" class="dropdown-item">
+                <i class="bi bi-calendar-check me-2 text-primary"></i> Evaluación agendada
+                <span class="float-end text-secondary fs-7">Hoy</span>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Notificación 2 -->
+              <a href="#" class="dropdown-item">
+                <i class="bi bi-clipboard-data me-2 text-success"></i> Informe clínico cargado
+                <span class="float-end text-secondary fs-7">Hace 2h</span>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Notificación 3 -->
+              <a href="#" class="dropdown-item">
+                <i class="bi bi-shield-exclamation me-2 text-danger"></i> Alerta: presión inestable
+                <span class="float-end text-secondary fs-7">Hace 1h</span>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Notificación 4 -->
+              <a href="#" class="dropdown-item">
+                <i class="bi bi-person-fill-check me-2 text-info"></i> Nuevo paciente ingresado
+                <span class="float-end text-secondary fs-7">Hace 45 min</span>
+              </a>
+              <div class="dropdown-divider"></div>
+
+              <!-- Notificación 5 -->
+              <a href="#" class="dropdown-item">
+                <i class="bi bi-journal-check me-2 text-warning"></i> Turno confirmado
+                <span class="float-end text-secondary fs-7">Hace 5 min</span>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">Ver todas</a>
+            </div>
+          </li>
+          <!--end::Notificaciones-->
+
+          <!--begin::Pantalla completa-->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-lte-toggle="fullscreen" aria-label="Pantalla completa">
+              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i>
+            </a>
+          </li>
+          <!--end::Pantalla completa-->
+          <!--begin::Usuario-->
+          <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png"
+                class="user-image rounded-circle shadow" alt="Usuario Áurea Salud" />
+              <span class="d-none d-md-inline fw-semibold">Equipo Áurea Salud</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end px-3 pb-3" style="min-width: 300px;">
+              <!-- Header del usuario -->
+              <li class="text-center py-3 border-bottom bg-primary text-white rounded-top">
+                <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" class="rounded-circle shadow mb-2"
+                  alt="Usuario" width="70" height="70" />
+                <p class="mb-0 fw-bold">Personal Autorizado - Gestión Clínica</p>
+                <small>ID: GestC-0022-ae1</small><br><small> admin@aureasalud.cl</small>
+              </li>
+              <!-- Cuerpo con accesos rápidos -->
+              <li class="py-3">
+                <div class="row text-center">
+                  <div class="col-4">
+                    <a href="./paginas-sistema/pacientes.html" class="text-decoration-none text-dark">
+                      <i class="bi bi-people fs-4 d-block"></i>
+                      <small>Pacientes</small>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a href="./paginas-sistema/agenda.html" class="text-decoration-none text-dark">
+                      <i class="bi bi-calendar-check fs-4 d-block"></i>
+                      <small>Agenda</small>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a href="./paginas-sistema/personal_de_planta.html" class="text-decoration-none text-dark">
+                      <i class="bi bi-person-badge fs-4 d-block"></i>
+                      <small>Equipo</small>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <!-- Footer con acciones -->
+              <li class="d-flex justify-content-between border-top pt-3">
+                <a href="./paginas-sistema/perfil.html" class="btn btn-outline-primary btn-sm w-50 me-2">Perfil</a>
+                <a href="../Paginas/login.html" class="btn btn-outline-danger btn-sm w-50">Cerrar sesión</a>
+              </li>
+            </ul>
+          </li>
+          <!--end::Usuario-->
+        </ul>
+        <!--end::Right Navbar Links-->
+      </div>
+      <!--end::Container-->
+    </nav>
+    <!--end::Header-->
+    <!--begin::Sidebar-->
+    <aside class="app-sidebar bg-dark shadow" data-bs-theme="dark">
+      <!--begin::Sidebar Brand-->
+      <div class="sidebar-brand d-flex align-items-center px-3 py-3 border-bottom border-secondary">
+        <img src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="Áurea Salud"
+          class="rounded-circle shadow-sm" style="width: 36px; height: 36px;">
+        <span class="ms-2 fw-semibold text-white fs-5">Áurea Salud</span>
+      </div>
+      <!--end::Sidebar Brand-->
+
+      <!--begin::Sidebar Wrapper-->
+      <div class="sidebar-wrapper">
+        <nav class="mt-2">
+          <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+            <!-- Panel -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-2">Panel</li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/index.html" class="nav-link active">
+                <i class="nav-icon bi bi-speedometer2"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+            <!-- Gestión Clínica -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Gestión Clínica</li>
+
+            <!-- Pacientes -->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-person-hearts"></i>
+                <p>Pacientes <i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./paginas-sistema/pacientes.html#listado" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Listado</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./paginas-sistema/pacientes.html#registro" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Registrar Nuevo</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Agenda Clínica -->
+            <li class="nav-item">
+              <a href="./paginas-sistema/agenda.html" class="nav-link">
+                <i class="nav-icon bi bi-calendar-week"></i>
+                <p>Agenda Clínica</p>
+              </a>
+            </li>
+
+            <!-- Profesionales -->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-person-badge-fill"></i>
+                <p>Profesionales <i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./paginas-sistema/personal_de_planta.html" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Listado</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./paginas-sistema/turnos.html" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Turnos y Asignaciones</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Administración -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Administración</li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/reportes.html" class="nav-link">
+                <i class="nav-icon bi bi-bar-chart-line-fill"></i>
+                <p>Reportes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/configuracion.html" class="nav-link">
+                <i class="nav-icon bi bi-gear-fill"></i>
+                <p>Configuración</p>
+              </a>
+            </li>
+            <!-- Ayuda y Soporte -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Ayuda y Soporte</li>
+
+            <li class="nav-item">
+              <a href="./paginas-sistema/soporte.html" class="nav-link">
+                <i class="nav-icon bi bi-life-preserver"></i>
+                <p>Centro de Soporte</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./paginas-sistema/manual.html" class="nav-link">
+                <i class="nav-icon bi bi-journal-text"></i>
+                <p>Manual del Usuario</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./paginas-sistema/tutoriales.html" class="nav-link">
+                <i class="nav-icon bi bi-play-btn"></i>
+                <p>Tutoriales</p>
+              </a>
+            </li>
+
+            <!-- Finanzas -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Finanzas</li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-receipt"></i>
+                <p>Facturación <i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./paginas-sistema/facturas.html" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Ver Facturas</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./paginas-sistema/nueva-factura.html" class="nav-link">
+                    <i class="nav-icon bi bi-dot"></i>
+                    <p>Generar Factura</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/pagos.html" class="nav-link">
+                <i class="nav-icon bi bi-cash-coin"></i>
+                <p>Pagos</p>
+              </a>
+            </li>
+
+            <!-- Usuarios -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Usuarios</li>
+            <li class="nav-item">
+              <a href="/sistema/paginas-sistema/gestion-usuarios.html" class="nav-link">
+                <i class="nav-icon bi bi-people-fill"></i>
+                <p>Gestión de Usuarios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/sistema/paginas-sistema/permisos.html" class="nav-link">
+                <i class="nav-icon bi bi-shield-lock-fill"></i>
+                <p>Roles y Permisos</p>
+              </a>
+            </li>
+
+            <!-- Indicadores -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Indicadores</li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/estadisticas.html" class="nav-link">
+                <i class="nav-icon bi bi-graph-up"></i>
+                <p>Estadísticas Globales</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/rendimiento.html" class="nav-link">
+                <i class="nav-icon bi bi-speedometer"></i>
+                <p>Rendimiento del Sistema</p>
+              </a>
+            </li>
+
+            <!-- Integraciones -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Integraciones</li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/api.html" class="nav-link">
+                <i class="nav-icon bi bi-plug"></i>
+                <p>Conexiones API</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./paginas-sistema/modulos.html" class="nav-link">
+                <i class="nav-icon bi bi-boxes"></i>
+                <p>Módulos Activos</p>
+              </a>
+            </li>
+
+            <!-- Acceso -->
+            <li class="nav-header text-uppercase text-muted small ps-3 pt-3">Acceso</li>
+            <li class="nav-item">
+              <a href="../Paginas/login.html" class="nav-link text-danger">
+                <i class="nav-icon bi bi-box-arrow-right"></i>
+                <p>Salir del sistema</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!--end::Sidebar Wrapper-->
+    </aside>
+    <!--end::Sidebar-->
+
+    <!-- begin::Preloader animado -->
+
+    <div id="preloader" style="
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(245,245,245,0.9));
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;">
+      <div class="loader-wave">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- end::Preloader animado -->
+    <!--begin::App Main-->
+    <main class="app-main">
+      <!--begin::App Content Header-->
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <h3 class="mb-0">Panel de Control</h3>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-end">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Panel de Control</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end::App Content Header-->
+      <!--begin::App Content-->
+      <div class="app-content py-3">
+        <div class="container-fluid">
+          <div class="row g-4">
+            <!-- Pacientes Activos -->
+            <div class="col-lg-3 col-6">
+              <div
+                class="small-box bg-primary text-white shadow rounded p-3 d-flex flex-column justify-content-between h-100">
+                <div class="inner">
+                  <h3 class="display-5 fw-bold mb-1" aria-live="polite" aria-atomic="true">35</h3>
+                  <p class="fs-5 mb-0">Pacientes Activos</p>
+                </div>
+                <div class="icon fs-1 opacity-75" aria-hidden="true">
+                  <i class="bi bi-person-hearts"></i>
+                </div>
+                <a href="#"
+                  class="small-box-footer mt-3 d-flex align-items-center justify-content-between text-white text-decoration-none"
+                  role="button" aria-label="Ver detalles de Pacientes Activos">
+                  Ver detalles
+                  <i class="bi bi-link-45deg ms-2"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Visitas Programadas -->
+            <div class="col-lg-3 col-6">
+              <div
+                class="small-box bg-success text-white shadow rounded p-3 d-flex flex-column justify-content-between h-100">
+                <div class="inner">
+                  <h3 class="display-5 fw-bold mb-1" aria-live="polite" aria-atomic="true">12</h3>
+                  <p class="fs-5 mb-0">Visitas Programadas</p>
+                </div>
+                <div class="icon fs-1 opacity-75" aria-hidden="true">
+                  <i class="bi bi-calendar-check"></i>
+                </div>
+                <a href="#"
+                  class="small-box-footer mt-3 d-flex align-items-center justify-content-between text-white text-decoration-none"
+                  role="button" aria-label="Ver agenda de Visitas Programadas">
+                  Ver agenda
+                  <i class="bi bi-link-45deg ms-2"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Nuevos Ingresos -->
+            <div class="col-lg-3 col-6">
+              <div
+                class="small-box bg-warning text-dark shadow rounded p-3 d-flex flex-column justify-content-between h-100">
+                <div class="inner">
+                  <h3 class="display-5 fw-bold mb-1" aria-live="polite" aria-atomic="true">4</h3>
+                  <p class="fs-5 mb-0">Nuevos Ingresos</p>
+                </div>
+                <div class="icon fs-1 opacity-75" aria-hidden="true">
+                  <i class="bi bi-person-plus-fill"></i>
+                </div>
+                <a href="#"
+                  class="small-box-footer mt-3 d-flex align-items-center justify-content-between text-dark text-decoration-none"
+                  role="button" aria-label="Ver pacientes Nuevos Ingresos">
+                  Ver pacientes
+                  <i class="bi bi-link-45deg ms-2"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Alertas Clínicas -->
+            <div class="col-lg-3 col-6">
+              <div
+                class="small-box bg-danger text-white shadow rounded p-3 d-flex flex-column justify-content-between h-100">
+                <div class="inner">
+                  <h3 class="display-5 fw-bold mb-1" aria-live="polite" aria-atomic="true">2</h3>
+                  <p class="fs-5 mb-0">Alertas Clínicas</p>
+                </div>
+                <div class="icon fs-1 opacity-75" aria-hidden="true">
+                  <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+                <a href="#"
+                  class="small-box-footer mt-3 d-flex align-items-center justify-content-between text-white text-decoration-none"
+                  role="button" aria-label="Revisar alertas clínicas">
+                  Revisar alertas
+                  <i class="bi bi-link-45deg ms-2"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--begin::Row-->
+      <div class="row">
+        <!-- Start col -->
+        <div class="col-lg-7 connectedSortable">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h3 class="card-title">Indicadores de Atención Clínica</h3>
+            </div>
+            <div class="card-body">
+              <div id="grafico-atencion-clinica" style="height: 300px;"></div>
+            </div>
+          </div>
+          <!-- /.card -->
+          <!-- DIRECT CHAT DEMO CON SELECCIÓN DE CHAT Y NOTIFICACIONES -->
+          <div class="card direct-chat direct-chat-primary mb-4 shadow-sm"
+            style="max-width: 700px; margin: auto; display: flex; flex-direction: row;">
+
+            <!-- Panel de Chats -->
+            <div id="chatListPanel"
+              style="width: 220px; border-right: 1px solid #ddd; background: #f8f9fa; overflow-y: auto; max-height: 400px; padding: 0.75rem;">
+              <h5 class="mb-3">Chats Disponibles</h5>
+              <ul class="list-group" id="chatList" style="max-height: 340px; overflow-y: auto;">
+                <!-- Lista de chats se llena desde JS -->
+              </ul>
+            </div>
+
+            <!-- Chat Principal -->
+            <div style="flex-grow: 1; display: flex; flex-direction: column;">
+
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title mb-0 d-flex align-items-center gap-2">
+                  <i class="bi bi-people-fill"></i>
+                  <span id="chatTitle">Selecciona un chat</span>
+                </h3>
+                <div class="card-tools d-flex align-items-center gap-2">
+                  <span title="Mensajes nuevos totales" class="badge bg-primary" id="totalNewMsgBadge"
+                    style="cursor: default;">0</span>
+                  <button type="button" class="btn btn-tool" aria-label="Colapsar chat" id="toggleCollapseBtn">
+                    <i class="bi bi-dash-lg"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" aria-label="Mostrar contactos" id="toggleContactsBtn">
+                    <i class="bi bi-chat-text-fill"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" aria-label="Cerrar chat" id="closeChatBtn">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-body p-0" id="chatBody" style="display: flex; flex-direction: column; flex-grow: 1;">
+
+                <!-- Conversaciones -->
+                <div class="direct-chat-messages p-3" style="height: 240px; overflow-y: auto; background: #f8f9fa;"
+                  id="messagesContainer" aria-live="polite" aria-relevant="additions">
+                  <div class="text-muted text-center small my-3" id="noMessagesNotice">Selecciona un chat para comenzar
+                  </div>
+                </div>
+
+                <!-- Contactos -->
+                <div class="direct-chat-contacts bg-light p-3" id="contactsList"
+                  style="display: none; height: 240px; overflow-y: auto;">
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><strong>Contacto 1</strong> <br /><small class="text-muted">Disponible</small></li>
+                    <li class="mb-2"><strong>Contacto 2</strong> <br /><small class="text-muted">Ocupado</small></li>
+                    <li class="mb-2"><strong>Contacto 3</strong> <br /><small class="text-muted">Ausente</small></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="card-footer p-3">
+                <form id="chatForm" aria-label="Formulario de envío de mensaje">
+                  <div class="input-group">
+                    <input type="text" id="messageInput" name="message" placeholder="Escribe un mensaje..."
+                      class="form-control" autocomplete="off" aria-required="true" disabled />
+                    <button type="submit" class="btn btn-primary" aria-label="Enviar mensaje" disabled>Enviar</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Start col: Paneles clínicos -->
+        <div class="col-lg-5 connectedSortable">
+          <!-- Panel de Atención Regional Mejorado -->
+          <div class="card text-white bg-primary bg-gradient border-primary mb-4 shadow-sm">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <h3 class="card-title mb-0 d-flex align-items-center gap-2">
+                Atención Regional –
+                <select id="selector-comuna" class="form-select form-select-sm bg-light text-dark border-0 shadow-sm"
+                  style="width: auto;">
+                  <option value="coquimbo" selected>Coquimbo</option>
+                  <option value="la_serena">La Serena</option>
+                  <option value="ovalle">Ovalle</option>
+                  <option value="andacollo">Andacollo</option>
+                </select>
+              </h3>
+              <button type="button" class="btn btn-primary btn-sm" data-lte-toggle="card-collapse">
+                <i class="bi bi-dash-lg" data-lte-icon="collapse"></i>
+                <i class="bi bi-plus-lg d-none" data-lte-icon="expand"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <div id="grafico-atencion-regional" style="height: 260px;"></div>
+            </div>
+            <div class="card-footer border-0 text-white-50 small fst-italic">
+              Datos generados por actividad registrada por el equipo clínico en la comuna seleccionada.
+            </div>
+          </div>
+
+          <!-- Panel 2: Cobertura por Comuna -->
+          <div class="card collapsed-card text-white bg-success bg-gradient border-success mb-4 shadow-sm">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <h3 class="card-title mb-0">Cobertura Semanal por Comuna</h3>
+              <button type="button" class="btn btn-success btn-sm" data-lte-toggle="card-collapse">
+                <i class="bi bi-dash-lg d-none" data-lte-icon="collapse"></i>
+                <i class="bi bi-plus-lg" data-lte-icon="expand"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <div id="grafico-cobertura" style="height: 250px;"></div>
+            </div>
+            <div class="card-footer border-0 text-white-50 small fst-italic">
+              Compara comunas atendidas esta semana por el equipo clínico.
+            </div>
+          </div>
+
+          <!-- Panel 3: Profesionales por Día -->
+          <div class="card collapsed-card text-white bg-warning bg-gradient border-warning mb-4 shadow-sm">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <h3 class="card-title mb-0">Profesionales Activos por Día</h3>
+              <button type="button" class="btn btn-warning btn-sm" data-lte-toggle="card-collapse">
+                <i class="bi bi-dash-lg d-none" data-lte-icon="collapse"></i>
+                <i class="bi bi-plus-lg" data-lte-icon="expand"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <div id="grafico-profesionales" style="height: 250px;"></div>
+            </div>
+            <div class="card-footer border-0 text-dark-50 small fst-italic">
+              Estadística diaria de profesionales disponibles en terreno.
+            </div>
+          </div>
+        </div>
+        <!-- End col -->
+
+        <!--end::App Content-->
+      </div>
+      <!--end::Container-->
+  </div>
+  <!--end::App Main-->
+
+  <!--begin::Footer-->
+  <footer class="app-footer bg-light border-top py-3" style="margin-left: 250px;">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center">
+      <div class="mb-2 mb-sm-0 text-muted small">
+        &copy; <span id="currentYear"></span> Áurea Salud. Todos los derechos reservados.
+      </div>
+      <div>
+        <a href="#" class="text-decoration-none me-3 text-muted small">Términos y condiciones</a>
+        <a href="#" class="text-decoration-none me-3 text-muted small">Política de privacidad</a>
+        <a href="https://aureasalucoquimbo.cl" target="_blank" rel="noopener"
+          class="text-decoration-none small fw-semibold">Áurea Salud</a>
+      </div>
+    </div>
+  </footer>
+  <!--end::Footer-->
+
+
+
+  <script>
+    // Actualiza el año automáticamente
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <!-- JS de librerías externas (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="./assets/js/adminlte.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js" crossorigin="anonymous"></script>
+
+  <!-- script personalizados -->
+  <script src="./assets/js/custom-dashboard.js"></script>
+  <script src="./assets/js/grafico-atencion-clinica.js"></script>
+  <script src="./assets/js//grafico-atencion-regional.js"></script>
+  <script src="./assets/js/grafico-cobertura.js"></script>
+  <script src="./assets/js/grafico-profesionales.js"></script>
+  <script src="./assets/js/back-end-chat.js"></script>
+  <script src="./assets/js/preloader-sistema.js"></script>
+  <script src="/sistema/assets/js/encabezado-funciones.js"></script>
+  <script src="/sistema/assets/js/busqueda-sistema.js"></script>
+  <script src="/sistema/assets/js/barra-lateral-izquierda.js"></script>
+  <script src="/sistema/assets/js/funciones-sidebar.js"></script>
+  <!--end::Script-->
+
+  <!-- Functional JS additions aligned to brand -->
+  <script>
+    (function () {
+      // Toggle search input
+      const btnSearch = document.getElementById('btn-toggle-search');
+      const searchContainer = document.getElementById('search-container');
+      const searchInput = document.getElementById('search-input');
+      if (btnSearch && searchContainer && searchInput) {
+        btnSearch.addEventListener('click', function (e) {
+          e.preventDefault();
+          const hidden = searchInput.classList.toggle('d-none');
+          if (!hidden) { searchInput.focus(); }
+        });
+      }
+
+      // Simple preloader for navigations
+      const preloader = document.getElementById('preloader');
+      function showPreloader(ms = 600) {
+        if (!preloader) return;
+        preloader.style.display = 'flex';
+        setTimeout(() => { preloader.style.display = 'none'; }, ms);
+      }
+      // Attach to internal links
+      document.querySelectorAll('a[href^="#"], a[href^="./"], a[href^="/"], a[data-preload="true"]').forEach(a => {
+        a.addEventListener('click', (ev) => {
+          // Do not block dropdown toggles or anchors with target=_blank
+          if (a.getAttribute('target') === '_blank' || a.dataset.bsToggle) return;
+          showPreloader(500);
+        });
+      });
+
+      // Fullscreen toggle icon swap
+      document.querySelectorAll('[data-lte-toggle="fullscreen"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.();
+          } else {
+            document.exitFullscreen?.();
+          }
+        });
+      });
+      document.addEventListener('fullscreenchange', () => {
+        document.querySelectorAll('[data-lte-icon="maximize"]').forEach(i => i.style.display = document.fullscreenElement ? 'none' : 'inline-block');
+        document.querySelectorAll('[data-lte-icon="minimize"]').forEach(i => i.style.display = document.fullscreenElement ? 'inline-block' : 'none');
+      });
+
+      // Card collapse (fallback if AdminLTE not present)
+      document.querySelectorAll('[data-lte-toggle="card-collapse"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.card');
+          if (!card) return;
+          const body = card.querySelector('.card-body');
+          const footer = card.querySelector('.card-footer');
+          const collapseIcon = btn.querySelector('[data-lte-icon="collapse"]');
+          const expandIcon = btn.querySelector('[data-lte-icon="expand"]');
+          const isHidden = body && body.style.display === 'none';
+          [body, footer].forEach(el => { if (el) { el.style.display = isHidden ? '' : 'none'; } });
+          if (collapseIcon && expandIcon) {
+            collapseIcon.classList.toggle('d-none', !isHidden);
+            expandIcon.classList.toggle('d-none', isHidden);
+          }
+        });
+      });
+
+      // Simple chat demo logic
+      const chats = [
+        {
+          id: 1, title: 'Coordinación Médica', unread: 2, messages: [
+            { from: 'ellos', text: 'Informe clínico revisado.' },
+            { from: 'ellos', text: '¿Puedes confirmar visita de mañana?' }
+          ]
+        },
+        {
+          id: 2, title: 'Personal de Enfermería', unread: 1, messages: [
+            { from: 'ellos', text: 'Falta validación de dosis.' }
+          ]
+        },
+        {
+          id: 3, title: 'Equipo Áurea', unread: 0, messages: [
+            { from: 'ellos', text: 'Nueva solicitud de atención.' }
+          ]
+        },
+      ];
+
+      const chatList = document.getElementById('chatList');
+      const chatTitle = document.getElementById('chatTitle');
+      const messagesContainer = document.getElementById('messagesContainer');
+      const noMessagesNotice = document.getElementById('noMessagesNotice');
+      const messageInput = document.getElementById('messageInput');
+      const chatForm = document.getElementById('chatForm');
+      const totalNewMsgBadge = document.getElementById('totalNewMsgBadge');
+      const contactsList = document.getElementById('contactsList');
+      const chatBody = document.getElementById('chatBody');
+      const toggleContactsBtn = document.getElementById('toggleContactsBtn');
+      const closeChatBtn = document.getElementById('closeChatBtn');
+      const toggleCollapseBtn = document.getElementById('toggleCollapseBtn');
+
+      let currentChat = null;
+
+      function renderChatList() {
+        if (!chatList) return;
+        chatList.innerHTML = '';
+        let totalUnread = 0;
+        chats.forEach(c => {
+          totalUnread += c.unread;
+          const li = document.createElement('li');
+          li.className = 'list-group-item d-flex justify-content-between align-items-center list-group-item-action';
+          li.tabIndex = 0;
+          li.innerHTML = `<span>${c.title}</span>${c.unread ? `<span class="badge bg-warning rounded-pill">${c.unread}</span>` : ''}`;
+          li.addEventListener('click', () => openChat(c.id));
+          li.addEventListener('keypress', (e) => { if (e.key === 'Enter') { openChat(c.id); } });
+          chatList.appendChild(li);
+        });
+        if (totalNewMsgBadge) totalNewMsgBadge.textContent = totalUnread;
+      }
+
+      function openChat(id) {
+        const chat = chats.find(x => x.id === id);
+        if (!chat) return;
+        currentChat = chat;
+        chatTitle.textContent = chat.title;
+        chat.unread = 0;
+        if (totalNewMsgBadge) {
+          const remaining = chats.reduce((a, c) => a + c.unread, 0);
+          totalNewMsgBadge.textContent = remaining;
+        }
+        // enable input
+        if (messageInput) messageInput.disabled = false;
+        const sendBtn = chatForm?.querySelector('button[type="submit"]');
+        if (sendBtn) sendBtn.disabled = false;
+        // render messages
+        messagesContainer.innerHTML = '';
+        (chat.messages || []).forEach(m => appendMessage(m.text, m.from === 'yo'));
+        if (noMessagesNotice) noMessagesNotice.style.display = 'none';
+        // Focus input
+        messageInput?.focus();
+      }
+
+      function appendMessage(text, mine = false) {
+        const wrap = document.createElement('div');
+        wrap.className = 'direct-chat-msg ' + (mine ? 'right' : '');
+        wrap.innerHTML = `
+          <div class="direct-chat-infos clearfix">
+            <span class="direct-chat-name ${mine ? 'float-end' : 'float-start'}">${mine ? 'Tú' : 'Contacto'}</span>
+            <span class="direct-chat-timestamp ${mine ? 'float-start' : 'float-end'}">${new Date().toLocaleTimeString()}</span>
+          </div>
+          <img class="direct-chat-img" src="../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="msg">
+          <div class="direct-chat-text" style="border-radius:12px; border:1px solid #eee;">${text}</div>
+        `;
+        messagesContainer.appendChild(wrap);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const text = (messageInput?.value || '').trim();
+          if (!text || !currentChat) return;
+          appendMessage(text, true);
+          currentChat.messages.push({ from: 'yo', text });
+          messageInput.value = '';
+          // Simulate reply
+          setTimeout(() => {
+            appendMessage('Recibido. Gracias.', false);
+          }, 800);
+        });
+      }
+
+      if (toggleContactsBtn && contactsList) {
+        toggleContactsBtn.addEventListener('click', () => {
+          const visible = contactsList.style.display !== 'none';
+          contactsList.style.display = visible ? 'none' : 'block';
+        });
+      }
+
+      if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', () => {
+          currentChat = null;
+          chatTitle.textContent = 'Selecciona un chat';
+          messagesContainer.innerHTML = '<div class="text-muted text-center small my-3" id="noMessagesNotice">Selecciona un chat para comenzar</div>';
+          messageInput.disabled = true;
+          const sendBtn = chatForm?.querySelector('button[type="submit"]');
+          if (sendBtn) sendBtn.disabled = true;
+        });
+      }
+
+      if (toggleCollapseBtn && chatBody) {
+        toggleCollapseBtn.addEventListener('click', () => {
+          const isHidden = chatBody.style.display === 'none';
+          chatBody.style.display = isHidden ? '' : 'none';
+        });
+      }
+
+      // Init
+      renderChatList();
+    })();
+  </script>
+
+</body>
+<!--end::Body-->
+
+</html>

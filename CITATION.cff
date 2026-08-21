@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si utiliza este trabajo, por favor cítelo."
+title: "Aurea Salud: prototipo de plataforma web de salud y telemedicina"
+authors:
+  - family-names: Varela
+    given-names: Patricio
+    alias: CA2OPX
+    orcid: https://orcid.org/0009-0002-1087-9445
+version: "0.1.0"
+date-released: "2025-11-24"
+type: software
+keywords:
+  - "salud"
+  - "telemedicina"
+  - "prototipo"
+  - "adminlte"
+  - "bootstrap"
+abstract: "Prototipo incompleto/experimental de plataforma de salud: landing informativa, login simulado en frontend y panel administrativo estático sobre AdminLTE v4. Proyecto de formación técnica (2024-2025), sin backend ni persistencia de datos."
+repository-code: "https://github.com/2674321/aurea-salud"

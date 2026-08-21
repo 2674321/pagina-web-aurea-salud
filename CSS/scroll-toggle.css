@@ -1,0 +1,36 @@
+.scroll-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background: #00439d;
+  color: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1200;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.2s ease;
+}
+
+.scroll-toggle.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-toggle:hover,
+.scroll-toggle:focus {
+  background: #edb23d;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.scroll-toggle i {
+  font-size: 1.6rem;
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Configuración | Áurea Salud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/recursos-graficos/Logo-sin-letras-removebg-preview.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../assets/css/adminlte.css" />
+  <link rel="stylesheet" href="../assets/css/animaciones-sistema.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" />
+
+  <style>
+    body { font-family: "Source Sans 3", system-ui, sans-serif; }
+    .card { border-radius: 1rem; }
+    .required::after { content:" *"; color:#dc3545; }
+    .form-section-title { font-weight: 700; font-size: 1.05rem; border-left: 4px solid var(--bs-primary); padding-left: .5rem; margin: 1rem 0 .75rem; }
+    .card-header strong { font-size: 1.05rem; }
+  </style>
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <div class="app-wrapper">
+    <!-- Encabezado -->
+    <nav class="app-header navbar navbar-expand bg-body shadow-sm">
+      <div class="container-fluid">
+        <!-- Marca -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
+          <!-- Logo corregido: sube dos niveles desde /paginas-sistema/ -->
+          <img src="../../recursos-graficos/Logo-sin-letras--removebg-preview.png"
+               alt="Áurea Salud"
+               width="32"
+               height="32"
+               class="rounded-circle shadow-sm border border-light-subtle" />
+          <span class="fw-semibold text-primary">Áurea Salud</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Encabezado de página -->
+    <main class="app-main">
+      <div class="app-content-header border-bottom">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h3 class="mb-0">
+                <i class="bi bi-gear me-2"></i>Configuración
+              </h3>
+            </div>
+            <div class="col-sm-6 text-sm-end small text-muted">
+              Última actualización: <span id="fecha-actual"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content py-3">
+        <div class="container-fluid">
+          <!-- Datos de la clínica -->
+          <div id="datos-clinica" class="card shadow-sm mb-4">
+            <div class="card-header bg-light"><strong><i class="bi bi-hospital me-2"></i>Datos de la clínica</strong></div>
+            <div class="card-body">
+              <form class="row g-3" id="formClinica" novalidate>
+                <div class="col-md-6">
+                  <label class="form-label required">Nombre</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Logo</label>
+                  <input type="file" class="form-control" accept="image/*" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label required">Teléfono</label>
+                  <input type="tel" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label required">Email</label>
+                  <input type="email" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Sitio web</label>
+                  <input type="url" class="form-control" />
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Horario de atención</label>
+                  <input type="text" class="form-control" placeholder="Lun-Vie 8:00-18:00" />
+                </div>
+                <div class="col-12 text-end">
+                  <button class="btn btn-outline-secondary me-2" type="reset"><i class="bi bi-eraser me-1"></i>Limpiar</button>
+                  <button class="btn btn-primary"><i class="bi bi-save me-1"></i>Guardar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Parámetros del sistema -->
+          <div id="parametros" class="card shadow-sm mb-4">
+            <div class="card-header bg-light"><strong><i class="bi bi-sliders me-2"></i>Parámetros del sistema</strong></div>
+            <div class="card-body">
+              <form class="row g-3" id="formParametros" novalidate>
+                <div class="col-md-4">
+                  <label class="form-label">Zona horaria</label>
+                  <select class="form-select">
+                    <option>America/Santiago</option>
+                    <option>America/Buenos_Aires</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Formato de fecha</label>
+                  <select class="form-select">
+                    <option>DD/MM/YYYY</option>
+                    <option>YYYY-MM-DD</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Idioma</label>
+                  <select class="form-select">
+                    <option>Español</option>
+                    <option>Inglés</option>
+                  </select>
+                </div>
+                <div class="col-12 text-end">
+                  <button class="btn btn-outline-secondary me-2" type="reset"><i class="bi bi-eraser me-1"></i>Restaurar</button>
+                  <button class="btn btn-primary"><i class="bi bi-save me-1"></i>Guardar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Usuarios y roles -->
+          <div id="usuarios" class="card shadow-sm mb-4">
+            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+              <strong><i class="bi bi-people me-2"></i>Usuarios y roles</strong>
+              <button class="btn btn-sm btn-outline-primary"><i class="bi bi-person-plus"></i> Nuevo usuario</button>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="tablaUsuarios" class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Rol</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1</td><td>Admin</td><td>admin@aureasalud.cl</td><td>Administrador</td><td><span class="badge bg-success">Activo</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seguridad -->
+          <div id="seguridad" class="card shadow-sm">
+            <div class="card-header bg-light"><strong><i class="bi bi-shield-lock me-2"></i>Seguridad</strong></div>
+            <div class="card-body">
+              <form class="row g-3" id="formSeguridad" novalidate>
+                <div class="col-md-6">
+                  <label class="form-label">Mínimo de caracteres en contraseña</label>
+                  <input type="number" class="form-control" value="8" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Expiración de contraseña (días)</label>
+                  <input type="number" class="form-control" value="90" />
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check mt-4">
+                    <input class="form-check-input" type="checkbox" id="twofa" />
+                    <label class="form-check-label" for="twofa">Requerir verificación en dos pasos (2FA)</label>
+                  </div>
+                </div>
+                <div class="col-12 text-end">
+                  <button class="btn btn-outline-secondary me-2" type="reset"><i class="bi bi-eraser me-1"></i>Restaurar</button>
+                  <button class="btn btn-primary"><i class="bi bi-save me-1"></i>Guardar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('fecha-actual').textContent = new Date().toLocaleDateString('es-CL', { dateStyle: 'long', timeStyle: 'short' });
+      new DataTable('#tablaUsuarios', {
+        responsive: true,
+        pageLength: 5,
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-CL.json'
+        }
+      });
+    });
+  </script>
+</body>
+</html>

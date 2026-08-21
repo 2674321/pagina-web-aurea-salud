@@ -1,0 +1,55 @@
+/* Footer general */
+.footer {
+  background-color: #f8f9fa;
+  color: #333;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+/* Elementos ocultos inicialmente */
+.footer .fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Hover de links individual */
+.footer a {
+  color: #00439d;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer a:hover {
+  color: #edb23d;
+  transform: translateY(-2px);
+}
+
+/* Títulos individuales */
+.footer h5 {
+  color: #00439d;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer h5:hover {
+  color: #edb23d;
+  transform: translateY(-3px);
+}
+
+/* Iconos sociales */
+.footer .bi {
+  color: #00439d;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer .bi:hover {
+  color: #edb23d;
+  transform: scale(1.2);
+}
+
+/* Créditos */
+.footer .text-center small a {
+  color: #00439d;
+  transition: color 0.3s ease;
+}
+.footer .text-center small a:hover {
+  color: #edb23d;
+}

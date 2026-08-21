@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Gestión de Usuarios | Áurea Salud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/recursos-graficos/Logo-sin-letras-removebg-preview.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../assets/css/adminlte.css" />
+  <link rel="stylesheet" href="../assets/css/animaciones-sistema.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" />
+
+  <style>
+    body { font-family: "Source Sans 3", system-ui, sans-serif; }
+    .card { border-radius: 1rem; }
+    .required::after { content:" *"; color:#dc3545; }
+    .table-avatar { width: 36px; height: 36px; object-fit: cover; border-radius: 50%; }
+    .btn-icon { padding: .35rem .5rem; }
+    .form-section-title {
+      font-weight: 700; font-size: 1.05rem;
+      border-left: 4px solid var(--bs-primary);
+      padding-left: .5rem; margin: 1rem 0 .75rem;
+    }
+    .img-preview {
+      width: 80px; height: 80px; object-fit: cover;
+      border-radius: 50%; border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <div class="app-wrapper">
+
+    <!-- Encabezado -->
+    <nav class="app-header navbar navbar-expand bg-body shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
+          <img src="../../recursos-graficos/Logo-sin-letras--removebg-preview.png" alt="Áurea Salud" width="32" height="32" class="rounded-circle shadow-sm border border-light-subtle" />
+          <span class="fw-semibold text-primary">Áurea Salud</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="app-main">
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h3 class="mb-0"><i class="bi bi-people-fill me-2"></i>Gestión de Usuarios</h3>
+            </div>
+            <div class="col-sm-6 text-end">
+              <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#panel-nuevo-usuario">
+                <i class="bi bi-person-plus me-1"></i> Nuevo Usuario
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-content py-3">
+        <div class="container-fluid">
+
+          <!-- Listado de usuarios -->
+          <div class="card shadow-sm mb-4">
+            <div class="card-header">
+              <h5 class="mb-0"><i class="bi bi-table me-2"></i>Listado de Usuarios</h5>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="tablaUsuarios" class="table table-hover table-striped w-100 align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th>ID</th>
+                      <th>Foto</th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Rol</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel de nuevo usuario -->
+          <div id="panel-nuevo-usuario" class="collapse">
+            <div class="card shadow-sm">
+              <div class="card-header"><strong><i class="bi bi-person-plus me-2"></i>Registrar Nuevo Usuario</strong></div>
+              <div class="card-body">
+                <form id="formUsuario" novalidate>
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label required">Nombre</label>
+                      <input type="text" class="form-control" required />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label required">Email</label>
+                      <input type="email" class="form-control" required />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label required">Contraseña</label>
+                      <input type="password" class="form-control" required />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label required">Rol</label>
+                      <select class="form-select" required>
+                        <option value="">Seleccionar</option>
+                        <option>Administrador</option>
+                        <option>Coordinador</option>
+                        <option>Profesional</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Foto</label>
+                      <input type="file" class="form-control" accept="image/*" />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Estado</label>
+                      <select class="form-select">
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="text-end mt-3">
+                    <button type="reset" class="btn btn-outline-secondary me-2"><i class="bi bi-eraser me-1"></i> Limpiar</button>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-save me-1"></i> Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal con pestañas -->
+  <div class="modal fade" id="modalUsuario" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-person-badge me-2"></i>Detalle / Edición de Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="tabsUsuario" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="datos-tab" data-bs-toggle="tab" data-bs-target="#datos" type="button" role="tab">Datos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="historial-tab" data-bs-toggle="tab" data-bs-target="#historial" type="button" role="tab">Historial</button>
+            </li>
+          </ul>
+          <div class="tab-content pt-3">
+            <!-- Datos -->
+            <div class="tab-pane fade show active" id="datos" role="tabpanel">
+              <form id="formEditarUsuario" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-4 text-center">
+                    <img id="previewFoto" src="https://via.placeholder.com/80" class="img-preview mb-2">
+                    <input type="file" class="form-control form-control-sm" accept="image/*" onchange="previewImage(event)">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" required>
+                    <label class="form-label mt-2">Email</label>
+                    <input type="email" class="form-control" name="email" required>
+                    <label class="form-label mt-2">Rol</label>
+                    <select class="form-select" name="rol" required>
+                      <option>Administrador</option>
+                      <option>Coordinador</option>
+                      <option>Profesional</option>
+                    </select>
+                    <label class="form-label mt-2">Estado</label>
+                    <select class="form-select" name="estado">
+                      <option>Activo</option>
+                      <option>Inactivo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-end mt-3">
+                  <button type="submit" class="btn btn-success"><i class="bi bi-save me-1"></i> Guardar cambios</button>
+                </div>
+              </form>
+            </div>
+            <!-- Historial -->
+            <div class="tab-pane fade" id="historial" role="tabpanel">
+              <table class="table table-sm table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Acción</th>
+                    <th>Observaciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaHistorial"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librerías -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+  <script>
+    let usuariosSeed = [
+      {id:1, foto:'', nombre:'Administrador General', email:'admin@aureasalud.cl', rol:'Administrador', estado:'Activo', historial:[
+        {fecha:'12/08/2025', accion:'Inicio de sesión', obs:'Desde IP 192.168.1.10'},
+        {fecha:'05/08/2025', accion:'Cambio de contraseña', obs:'Actualización de seguridad'}
+      ]},
+      {id:2, foto:'', nombre:'Coordinador Médico', email:'coordinador@aureasalud.cl', rol:'Coordinador', estado:'Activo', historial:[
+        {fecha:'10/08/2025', accion:'Edición de paciente', obs:'Modificó datos de paciente Juan Pérez'}
+      ]},
+      {id:3, foto:'', nombre:'Profesional de Enfermería', email:'enfermeria@aureasalud.cl', rol:'Profesional', estado:'Inactivo', historial:[
+        {fecha:'01/08/2025', accion:'Ingreso de ficha médica', obs:'Paciente María López'}
+      ]}
+    ];
+
+    let dt;
+
+    function initTablaUsuarios(){
+      const tbody = document.querySelector('#tablaUsuarios tbody');
+      tbody.innerHTML = '';
+      usuariosSeed.forEach(u=>{
+        tbody.innerHTML += `
+          <tr>
+            <td>${u.id}</td>
+            <td><img src="${u.foto || 'https://via.placeholder.com/36'}" class="table-avatar"></td>
+            <td>${u.nombre}</td>
+            <td>${u.email}</td>
+            <td>${u.rol}</td>
+            <td><span class="badge ${u.estado==='Activo'?'bg-success':'bg-secondary'}">${u.estado}</span></td>
+            <td>
+              <button class="btn btn-sm btn-info btn-icon" title="Ver / Editar" onclick="abrirModalUsuario(${u.id})"><i class="bi bi-pencil-square"></i></button>
+              <button class="btn btn-sm btn-danger btn-icon" title="Eliminar" onclick="eliminarUsuario(${u.id})"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+        `;
+      });
+
+      if(dt){ dt.destroy(); }
+      dt = new DataTable('#tablaUsuarios', {
+        responsive:true,
+        pageLength:5,
+        language:{ url:'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-CL.json' },
+        dom:'Bfrtip',
+        buttons:['excel','csv','pdf','print']
+      });
+    }
+
+    function abrirModalUsuario(id){
+      const u = usuariosSeed.find(x => x.id === id);
+      if(!u) return;
+
+      document.querySelector('#previewFoto').src = u.foto || 'https://via.placeholder.com/80';
+      const form = document.getElementById('formEditarUsuario');
+      form.nombre.value = u.nombre;
+      form.email.value = u.email;
+      form.rol.value = u.rol;
+      form.estado.value = u.estado;
+
+      const tbodyHist = document.getElementById('tablaHistorial');
+      tbodyHist.innerHTML = '';
+      u.historial.forEach(h=>{
+        tbodyHist.innerHTML += `<tr><td>${h.fecha}</td><td>${h.accion}</td><td>${h.obs}</td></tr>`;
+      });
+
+      form.onsubmit = (e)=>{
+        e.preventDefault();
+        u.nombre = form.nombre.value;
+        u.email = form.email.value;
+        u.rol = form.rol.value;
+        u.estado = form.estado.value;
+        initTablaUsuarios();
+        bootstrap.Modal.getInstance(document.getElementById('modalUsuario')).hide();
+      };
+
+      new bootstrap.Modal('#modalUsuario').show();
+    }
+
+    function previewImage(event){
+      const output = document.getElementById('previewFoto');
+      output.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    function eliminarUsuario(id){
+      if(confirm("¿Seguro que deseas eliminar este usuario?")){
+        usuariosSeed = usuariosSeed.filter(u => u.id !== id);
+        initTablaUsuarios();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initTablaUsuarios);
+  </script>
+</body>
+</html>

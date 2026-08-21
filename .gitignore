@@ -1,0 +1,11 @@
+# Exclusiones para futura publicación en Git
+# Proyecto INCOMPLETO/EXPERIMENTAL — revisar README.md antes de publicar
+
+# Recursos locales no publicables (datos personales + multimedia pesada)
+recursos-graficos/
+vscode/
+*.bat
+
+# Sistema operativo / editores
+Thumbs.db
+.DS_Store
