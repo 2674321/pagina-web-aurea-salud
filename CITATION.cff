@@ -9,6 +9,7 @@ authors:
 version: "0.1.0"
 date-released: "2025-11-24"
 type: software
+license: MIT
 keywords:
   - "salud"
   - "telemedicina"
