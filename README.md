@@ -26,6 +26,16 @@ desarrollado entre 2024 y 2025 bajo el nombre inicial «Cuidados Vitalis».
 - Autenticación o verificación real de identidad
 - Varias subpáginas quedaron como archivos vacíos (0 bytes)
 
+## Capturas
+
+### Landing pública
+
+![Landing Aurea Salud](docs/screenshots/landing.png)
+
+### Panel administrativo (maqueta AdminLTE)
+
+![Panel administrativo](docs/screenshots/panel-admin.png)
+
 ## Estructura
 
 ```
