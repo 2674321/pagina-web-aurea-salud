@@ -1,5 +1,7 @@
 # Aurea Salud
 
+**Autor:** [Patricio Varela C.](https://github.com/2674321) · **ORCID:** [0009-0002-1087-9445](https://orcid.org/0009-0002-1087-9445) · **Licencia:** [MIT](LICENSE) · **Citación:** [CITATION.cff](CITATION.cff)
+
 Prototipo de plataforma web de salud/telemedicina para Coquimbo (Chile),
 desarrollado entre 2024 y 2025 bajo el nombre inicial «Cuidados Vitalis».
 
@@ -51,10 +53,3 @@ desarrollado entre 2024 y 2025 bajo el nombre inicial «Cuidados Vitalis».
 El landing utiliza una plantilla de BootstrapMade cuya licencia gratuita requiere
 conservar la atribución (se mantiene en el footer). El panel usa AdminLTE (MIT).
 
-## Autor
-
-**Patricio Varela C.** (CA2OPX) · [ORCID 0009-0002-1087-9445](https://orcid.org/0009-0002-1087-9445) · [github.com/2674321](https://github.com/2674321)
-
-## Cita
-
-Si utilizas este trabajo, por favor cítelo — ver [CITATION.cff](CITATION.cff).
