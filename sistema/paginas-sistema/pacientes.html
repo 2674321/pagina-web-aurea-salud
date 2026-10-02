@@ -37,7 +37,7 @@
       <div class="container-fluid">
         <!-- Marca -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="../../index.html">
-          <img src="../../recursos-graficos/Logo-sin-letras--removebg-preview.png"
+          <img src="../../recursos-graficos/logo-sin-letras-removebg-preview.png"
                alt="Logo Áurea Salud"
                width="32"
                height="32"
@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-danger" href="../Paginas/login.html" title="Cerrar sesión">
+            <a class="nav-link text-danger" href="../../Paginas/login.html" title="Cerrar sesión">
               <i class="bi bi-box-arrow-right me-1"></i>Salir
             </a>
           </li>
@@ -401,10 +401,12 @@
     }
 
     // Seed de ejemplo (puedes conectar a tu backend)
+    // Datos 100 % ficticios: sin afiliación de salud, identificadores y
+    // contactos inequívocamente de demostración. No usar datos reales aquí.
     const pacientesSeed = [
-      {id: 101, foto: '', rut: '12.345.678-9', nombres: 'María Fernanda', apellidos: 'Pérez Soto', fecha_nac: '1989-06-12', genero:'Femenino', telefono:'+56 9 1111 1111', email:'maria.perez@ejemplo.cl', comuna:'Coquimbo', seguro:'FONASA', estado:'Activo'},
-      {id: 102, foto: '', rut: '9.876.543-2', nombres: 'José Antonio', apellidos: 'González Rojas', fecha_nac: '1975-11-03', genero:'Masculino', telefono:'+56 9 2222 2222', email:'jose.gonzalez@ejemplo.cl', comuna:'La Serena', seguro:'ISAPRE', estado:'En pausa'},
-      {id: 103, foto: '', rut: 'A12345', nombres: 'Lucía', apellidos: 'Araya Díaz', fecha_nac: '2001-02-20', genero:'Femenino', telefono:'+56 9 3333 3333', email:'lucia.araya@ejemplo.cl', comuna:'Ovalle', seguro:'Privado', estado:'Activo'}
+      {id: 101, foto: '', rut: 'DEMO-001', nombres: 'Paciente', apellidos: 'Demo 01', fecha_nac: '2000-01-01', genero:'Femenino', telefono:'+56 9 0000 0001', email:'paciente01@example.invalid', comuna:'Comuna Demo', seguro:'', estado:'Activo'},
+      {id: 102, foto: '', rut: 'DEMO-002', nombres: 'Paciente', apellidos: 'Demo 02', fecha_nac: '2000-02-02', genero:'Masculino', telefono:'+56 9 0000 0002', email:'paciente02@example.invalid', comuna:'Comuna Demo', seguro:'', estado:'En pausa'},
+      {id: 103, foto: '', rut: 'DEMO-003', nombres: 'Paciente', apellidos: 'Demo 03', fecha_nac: '2000-03-03', genero:'Femenino', telefono:'+56 9 0000 0003', email:'paciente03@example.invalid', comuna:'Comuna Demo', seguro:'', estado:'Activo'}
     ];
 
     // Inicializa DataTable

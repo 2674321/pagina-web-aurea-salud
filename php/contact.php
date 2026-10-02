@@ -1,20 +1,24 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "soporte.cuidados.vitalis@gmail.com";
-    $subject = "Nuevo mensaje de contacto";
+declare(strict_types=1);
 
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $subjectInput = htmlspecialchars($_POST["subject"]);
-    $message = htmlspecialchars($_POST["message"]);
+require_once __DIR__ . '/mailer.php';
 
-    $body = "Nombre: $name\nCorreo: $email\nAsunto: $subjectInput\n\nMensaje:\n$message";
-    $headers = "From: $email\r\nReply-To: $email\r\n";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "success";
-    } else {
-        echo "error";
-    }
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    http_response_code(405);
+    exit;
 }
-?>
+
+$email = (string) ($_POST['email'] ?? '');
+
+$enviado = aurea_enviar_formulario(
+    'Nuevo mensaje de contacto',
+    [
+        'Nombre'  => (string) ($_POST['name'] ?? ''),
+        'Correo'  => $email,
+        'Asunto'  => (string) ($_POST['subject'] ?? ''),
+        'Mensaje' => (string) ($_POST['message'] ?? ''),
+    ],
+    $email
+);
+
+echo $enviado ? 'success' : 'error';

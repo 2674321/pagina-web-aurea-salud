@@ -1,27 +1,28 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "soporte.cuidados.vitalis@gmail.com";
-    $subject = "Nueva solicitud de atención domiciliaria";
+declare(strict_types=1);
 
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $phone = htmlspecialchars($_POST["phone"]);
-    $date = htmlspecialchars($_POST["date"]);
-    $care_plan = htmlspecialchars($_POST["care_plan"]);
-    $specialty = htmlspecialchars($_POST["specialty"]);
-    $urgency = htmlspecialchars($_POST["urgency"]);
-    $message = htmlspecialchars($_POST["message"]);
+require_once __DIR__ . '/mailer.php';
 
-    $body = "Nombre: $name\nCorreo: $email\nTeléfono: $phone\nFecha preferente: $date\n";
-    $body .= "Tipo de atención: $care_plan\nEspecialidad: $specialty\nUrgencia: $urgency\n\n";
-    $body .= "Mensaje:\n$message";
-
-    $headers = "From: $email\r\nReply-To: $email\r\n";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "success";
-    } else {
-        echo "error";
-    }
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    http_response_code(405);
+    exit;
 }
-?>
+
+$email = (string) ($_POST['email'] ?? '');
+
+$enviado = aurea_enviar_formulario(
+    'Nueva solicitud de atención domiciliaria',
+    [
+        'Nombre'           => (string) ($_POST['name'] ?? ''),
+        'Correo'           => $email,
+        'Teléfono'         => (string) ($_POST['phone'] ?? ''),
+        'Fecha preferente' => (string) ($_POST['date'] ?? ''),
+        'Tipo de atención' => (string) ($_POST['care_plan'] ?? ''),
+        'Especialidad'     => (string) ($_POST['specialty'] ?? ''),
+        'Urgencia'         => (string) ($_POST['urgency'] ?? ''),
+        'Mensaje'          => (string) ($_POST['message'] ?? ''),
+    ],
+    $email
+);
+
+echo $enviado ? 'success' : 'error';
